@@ -1,0 +1,46 @@
+// schemas/productSchema.ts
+import { z } from 'zod';
+import type { Product } from '@/types/product-types';
+
+export const productSchema = z.object({
+  lp_id: z.number().nullable(),
+  posh_id: z.string().nullable(),
+  sku: z.string().nullable(),
+  title: z.string().min(1, "Title is required"),
+  description: z.string().nullable(),
+  new_with_tag: z.string().nullable(),
+  condition: z.string().nullable(),
+  condition_notes: z.string().nullable(),
+  keywords: z.string().nullable(),
+  sold: z.boolean().nullable(),
+  colors: z.string().nullable(),
+  department: z.string().nullable(),
+  category: z.string().nullable(),
+  subcategory: z.string().nullable(),
+  all_style_tags: z.string().nullable(),
+  item_cost: z.string().nullable(),
+  msrp: z.string().nullable(),
+  price: z.number().nullable(),
+  brand: z.string().nullable(),
+  size: z.string().nullable(),
+  material: z.string().nullable(),
+  first_image_url: z.string().nullable(),
+  image_gallery_Current: z.string().nullable(),
+  image_gallery_count_Current: z.number().nullable(),
+  Likes_Poshmark: z.number().nullable(),
+  Number_of_Days_Listed_Poshmark: z.number().nullable(),
+  total_token_count: z.number().nullable(),
+  total_token_price: z.number().nullable(),
+  completion_token_count: z.number().nullable(),
+  completion_token_price: z.number().nullable(),
+  prompt_token_count: z.number().nullable(),
+  prompt_token_price: z.number().nullable(),
+  id: z.string().uuid(),
+  created_at: z.date(),
+  deleted_at: z.date().nullable(),
+  updated_at: z.date().nullable(),
+  file_id: z.string().nullable(),
+  image_id: z.string().nullable(),
+}).partial();
+
+export type ProductSchemaType = z.infer<typeof productSchema>;
